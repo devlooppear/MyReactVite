@@ -1,30 +1,55 @@
-# React + TypeScript + Vite
+# MyReactVite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a template for starting frontend projects using Vite, React, TypeScript, Tailwind CSS, Docker, and Docker Compose.
 
-Currently, two official plugins are available:
+## Getting Started
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+To get started with this project, follow these steps:
 
-## Expanding the ESLint configuration
+1. Clone the repository:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+   ```bash
+   git clone <repository-url>
+   cd <the-repository-here>
+   ```
 
-- Configure the top-level `parserOptions` property like this:
+2. Build and run the Docker container:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+   ```bash
+   docker-compose up --build
+   ```
+
+3. Open your browser and navigate to [http://localhost:8080](http://localhost:8080) to view the application.
+
+## Project Structure
+
+- **dist:** Contains the built application files.
+- **src:** Contains the source code for your React application.
+- **public:** Contains static assets and the main HTML file.
+
+## Nginx Configuration
+
+The application is served using Nginx. The Nginx configuration is included in the Dockerfile and Docker Compose configuration.
+
+## Docker Configuration
+
+The project uses Docker and Docker Compose for containerization. The Dockerfile installs dependencies, builds the application, and then serves it using Nginx.
+
+### Building the Docker Image
+
+```bash
+  docker-compose build
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Additional Information
+- Dependencies:
+
+  [Node.js](https://nodejs.org/),
+
+  [npm](https://www.npmjs.com/),
+
+  [Docker](https://www.docker.com/),
+
+  [Docker Compose](https://docs.docker.com/compose/)
+
+- Port: The application is served on port 8080, you can change if you want and to don't have conflicts if a other port is alocated
